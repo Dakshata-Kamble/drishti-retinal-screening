@@ -1,0 +1,482 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #005c55;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #0d766e;
+  --color-on-primary-container: #a3faef;
+  --color-primary-fixed: #9bf2e8;
+  --color-primary-fixed-dim: #7fd5cc;
+  --color-on-primary-fixed: #00201d;
+  --color-on-primary-fixed-variant: #00504a;
+  --color-inverse-primary: #7fd5cc;
+
+  --color-secondary: #006398;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #5bb8fe;
+  --color-on-secondary-container: #00476e;
+  --color-secondary-fixed: #cce5ff;
+  --color-secondary-fixed-dim: #93ccff;
+  --color-on-secondary-fixed: #001d31;
+  --color-on-secondary-fixed-variant: #004b73;
+
+  --color-tertiary: #005e26;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #007a33;
+  --color-on-tertiary-container: #a1ffad;
+  --color-tertiary-fixed: #7ffc97;
+  --color-tertiary-fixed-dim: #62df7d;
+  --color-on-tertiary-fixed: #002109;
+  --color-on-tertiary-fixed-variant: #005320;
+
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+
+  --color-surface: #faf8ff;
+  --color-surface-dim: #d2d9f4;
+  --color-surface-bright: #faf8ff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f2f3ff;
+  --color-surface-container: #eaedff;
+  --color-surface-container-high: #e2e7ff;
+  --color-surface-container-highest: #dae2fd;
+  --color-surface-variant: #dae2fd;
+  --color-on-surface: #131b2e;
+  --color-on-surface-variant: #3e4947;
+  --color-inverse-surface: #283044;
+  --color-inverse-on-surface: #eef0ff;
+
+  --color-outline: #6e7977;
+  --color-outline-variant: #bdc9c6;
+  --color-surface-tint: #006a63;
+  --color-background: #faf8ff;
+  --color-on-background: #131b2e;
+
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    overscroll-behavior: none;
+  }
+}
+
+/* Material symbols utility */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+/* High-glare outdoor mode contrast boost */
+body.high-glare-mode {
+  filter: contrast(1.18) saturate(1.12);
+}
+
+body.high-glare-mode .bg-surface {
+  background-color: #f0f4ff !important;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #bdc9c6;
+  border-radius: 9999px;
+}
+
+/* PWA Offline Banner animation */
+@keyframes slideDown {
+  from { transform: translateY(-100%); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   DRISHTI ANIMATION DESIGN SYSTEM
+   Professional medical/clinical motion design tokens & animations
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Duration tokens */
+  --anim-fast: 150ms;
+  --anim-normal: 220ms;
+  --anim-emphasis: 500ms;
+  --anim-data-viz: 800ms;
+
+  /* Easing tokens */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ── Page Transitions ────────────────────────────────────────────────── */
+.drishti-page-enter {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.drishti-page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity var(--anim-normal) var(--ease-out),
+              transform var(--anim-normal) var(--ease-out);
+}
+
+/* ── Entrance Animation System ───────────────────────────────────────── */
+.drishti-entrance {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity var(--anim-normal) var(--ease-out),
+              transform var(--anim-normal) var(--ease-out);
+  will-change: opacity, transform;
+}
+
+.drishti-entrance--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Stagger Entrance for Cards ──────────────────────────────────────── */
+.drishti-stagger-1 { transition-delay: 60ms; }
+.drishti-stagger-2 { transition-delay: 120ms; }
+.drishti-stagger-3 { transition-delay: 180ms; }
+.drishti-stagger-4 { transition-delay: 240ms; }
+.drishti-stagger-5 { transition-delay: 300ms; }
+.drishti-stagger-6 { transition-delay: 360ms; }
+
+/* ── Modal Animations ────────────────────────────────────────────────── */
+@keyframes drishtiModalBackdropIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes drishtiModalContentIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes drishtiModalBackdropOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+@keyframes drishtiModalContentOut {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+}
+
+.drishti-modal-backdrop {
+  animation: drishtiModalBackdropIn var(--anim-normal) var(--ease-out) both;
+}
+
+.drishti-modal-content {
+  animation: drishtiModalContentIn var(--anim-normal) var(--ease-out) both;
+}
+
+.drishti-modal-backdrop--closing {
+  animation: drishtiModalBackdropOut var(--anim-fast) var(--ease-in-out) both;
+}
+
+.drishti-modal-content--closing {
+  animation: drishtiModalContentOut var(--anim-fast) var(--ease-in-out) both;
+}
+
+/* ── Toast Animations ────────────────────────────────────────────────── */
+@keyframes drishtiToastIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes drishtiToastOut {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.96);
+  }
+}
+
+.drishti-toast-enter {
+  animation: drishtiToastIn var(--anim-normal) var(--ease-out) both;
+}
+
+.drishti-toast-exit {
+  animation: drishtiToastOut var(--anim-fast) var(--ease-in-out) both;
+}
+
+/* ── Button Micro-Interactions ───────────────────────────────────────── */
+.drishti-btn {
+  transition: background-color var(--anim-fast) var(--ease-out),
+              box-shadow var(--anim-fast) var(--ease-out),
+              transform var(--anim-fast) var(--ease-out),
+              opacity var(--anim-fast) var(--ease-out);
+}
+
+.drishti-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.drishti-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.drishti-btn--loading {
+  position: relative;
+  pointer-events: none;
+}
+
+/* ── Navigation Transitions ──────────────────────────────────────────── */
+.drishti-nav-item {
+  transition: background-color var(--anim-fast) var(--ease-out),
+              color var(--anim-fast) var(--ease-out),
+              box-shadow var(--anim-fast) var(--ease-out);
+}
+
+.drishti-nav-active-indicator {
+  transition: all var(--anim-normal) var(--ease-out);
+}
+
+/* ── Mobile Drawer ───────────────────────────────────────────────────── */
+@keyframes drishtiDrawerIn {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(0); }
+}
+
+@keyframes drishtiDrawerOut {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}
+
+.drishti-drawer-enter {
+  animation: drishtiDrawerIn var(--anim-normal) var(--ease-out) both;
+}
+
+/* ── Table Row Animations ────────────────────────────────────────────── */
+.drishti-table-row {
+  transition: background-color var(--anim-fast) var(--ease-out);
+}
+
+@keyframes drishtiRowFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.drishti-row-enter {
+  animation: drishtiRowFadeIn var(--anim-normal) var(--ease-out) both;
+}
+
+/* ── Tooltip Animations ──────────────────────────────────────────────── */
+@keyframes drishtiTooltipIn {
+  from {
+    opacity: 0;
+    transform: translateY(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.drishti-tooltip {
+  animation: drishtiTooltipIn var(--anim-fast) var(--ease-out) both;
+}
+
+/* ── AI Scanning Effect ──────────────────────────────────────────────── */
+@keyframes drishtiScanLine {
+  0%   { top: 0%; opacity: 0; }
+  5%   { opacity: 0.7; }
+  95%  { opacity: 0.7; }
+  100% { top: 100%; opacity: 0; }
+}
+
+.drishti-scan-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(13, 118, 110, 0.5), transparent);
+  box-shadow: 0 0 8px rgba(13, 118, 110, 0.3);
+  animation: drishtiScanLine 2.5s var(--ease-in-out) infinite;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* ── Analysis Status Text Fade ───────────────────────────────────────── */
+@keyframes drishtiStatusFade {
+  0%, 100% { opacity: 0.4; }
+  50%      { opacity: 1; }
+}
+
+.drishti-status-pulse {
+  animation: drishtiStatusFade 2s var(--ease-in-out) infinite;
+}
+
+/* ── Progress Bar Fill ───────────────────────────────────────────────── */
+.drishti-progress-fill {
+  transition: width var(--anim-data-viz) var(--ease-out);
+}
+
+/* ── Circular Progress Animated ──────────────────────────────────────── */
+.drishti-circle-progress {
+  transition: stroke-dasharray var(--anim-data-viz) var(--ease-out);
+}
+
+/* ── Error State Fade In ─────────────────────────────────────────────── */
+@keyframes drishtiErrorFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.drishti-error-enter {
+  animation: drishtiErrorFadeIn var(--anim-normal) var(--ease-out) both;
+}
+
+/* ── Skeleton Loader ─────────────────────────────────────────────────── */
+@keyframes drishtiShimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.drishti-skeleton {
+  background: linear-gradient(
+    90deg,
+    #e2e7ff 25%,
+    #eaedff 50%,
+    #e2e7ff 75%
+  );
+  background-size: 200% 100%;
+  animation: drishtiShimmer 1.5s var(--ease-in-out) infinite;
+  border-radius: 6px;
+}
+
+/* ── Loading Spinner ─────────────────────────────────────────────────── */
+@keyframes drishtiSpin {
+  to { transform: rotate(360deg); }
+}
+
+.drishti-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: drishtiSpin 0.6s linear infinite;
+  display: inline-block;
+}
+
+.drishti-spinner--lg {
+  width: 24px;
+  height: 24px;
+  border-width: 2.5px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   REDUCED MOTION — WCAG 2.1 AA Compliance
+   ═══════════════════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .drishti-entrance {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .drishti-scan-line {
+    display: none;
+  }
+
+  .drishti-status-pulse {
+    animation: none;
+    opacity: 1;
+  }
+
+  .drishti-skeleton {
+    animation: none;
+    background: #e2e7ff;
+  }
+
+  .drishti-spinner {
+    animation: none;
+    border-style: dotted;
+  }
+
+  .drishti-progress-fill {
+    transition: none;
+  }
+
+  .drishti-circle-progress {
+    transition: none;
+  }
+
+  .animate-pulse {
+    animation: none !important;
+  }
+
+  .animate-ping {
+    animation: none !important;
+  }
+
+  .animate-spin {
+    animation: none !important;
+  }
+}

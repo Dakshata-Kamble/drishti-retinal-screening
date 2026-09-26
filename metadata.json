@@ -1,0 +1,6 @@
+{
+  "name": "DrishtiAI Retinal Screening PWA",
+  "description": "Offline-first clinical AI screening platform for non-mydriatic diabetic retinopathy detection and tele-triage in rural health outreach camps.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
