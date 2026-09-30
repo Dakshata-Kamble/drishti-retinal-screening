@@ -305,6 +305,5 @@ The system is intended as a screening-support solution and **does not replace pr
 ## 👥 Team
 
 **Team Name:** Drishti.  
-**Team ID:** 133559  
 **Smart India Hackathon:** 2026  
 **Problem Statement:** SIH26038 — Explainable AI for Diabetic Retinopathy Screening in Rural India
