@@ -251,46 +251,12 @@ The project references retinal datasets for training, severity classification, l
 
 ---
 
-## 📚 Research & References
-
-The project research references include:
-
-### Diabetic Retinopathy & Healthcare
-- WHO — Blindness and Vision Impairment
-- Vashist et al. (2022) — SMART India Survey
-- Das et al. (2022) — DR Prevalence in Urban & Rural India
-- IDF Diabetes Atlas, 11th ed. (2025)
-- Jain et al. (2024) — Rural & Tribal DR in Maharashtra
-- Gurudas et al. (2024) — SMART-India Vision Impairment & Blindness Study
-
-### AI / Deep Learning
-- Gulshan et al. (2016) — Deep Learning Algorithm for DR Detection
-- Ting et al. (2017) — Deep Learning System for DR
-- Gargeya & Leng (2017) — Automated DR Identification
-- Krause et al. (2018) — Grader Variability & Reference Standards
-- The Lancet Digital Health (2020) — AI for DR Screening
-
-### Explainable AI
-- Selvaraju et al. (2017) — Grad-CAM
-- Ribeiro et al. (2016) — LIME
-- Lundberg & Lee (2017) — SHAP
-
 ### Rural Healthcare & Responsible AI
 - Ayushman Bharat Digital Mission (ABDM)
 - Indian DR Guidelines (2020)
 - AIOS–VRSI DR Screening Consensus
 - MoHFW Operational Guidelines for DR
 - NPCBVI — Government of India
-
----
-
-## 🔗 Project Links
-
-**GitHub Repository:**  
-https://github.com/Dakshata-Kamble/drishti-retinal-screening
-
-**Prototype Demo:**  
-https://drive.google.com/file/d/1lbfquwzlhFatQ2_iNbvPSQMAWCSww423/view?usp=drivesdk
 
 ---
 
