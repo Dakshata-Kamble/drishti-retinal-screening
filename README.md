@@ -237,39 +237,4 @@ The PPT identifies the following initial targets:
 
 These are **project targets**, not validated clinical performance results.
 
----
 
-## 🗂️ Datasets & Benchmarking Resources
-
-The project references retinal datasets for training, severity classification, lesion analysis and validation:
-
-- **IDRiD — Indian Diabetic Retinopathy Image Dataset**
-- **APTOS 2019 Blindness Detection — Kaggle**
-- Combined DR Dataset — APTOS / IDRiD / Messidor / EyePACS
-- Diagnosis of Diabetic Retinopathy dataset
-- Kaggle Diabetic Retinopathy Detection dataset
-
----
-
-### Rural Healthcare & Responsible AI
-- Ayushman Bharat Digital Mission (ABDM)
-- Indian DR Guidelines (2020)
-- AIOS–VRSI DR Screening Consensus
-- MoHFW Operational Guidelines for DR
-- NPCBVI — Government of India
-
----
-
-## ⚠️ Disclaimer
-
-Drishti. is a **Smart India Hackathon 2026 project/prototype** developed for educational, research and demonstration purposes.
-
-The system is intended as a screening-support solution and **does not replace professional medical diagnosis**. AI-generated results require appropriate clinical review and validation before any real-world medical deployment.
-
----
-
-## 👥 Team
-
-**Team Name:** Drishti.  
-**Smart India Hackathon:** 2026  
-**Problem Statement:** SIH26038 — Explainable AI for Diabetic Retinopathy Screening in Rural India
